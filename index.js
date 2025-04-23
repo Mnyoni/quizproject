@@ -26,39 +26,28 @@
         );
       }
     );
-
-    // finally combine our output list into one string of HTML and put it on the page
     quizContainer.innerHTML = output.join('');
   }
 
   function showResults(){
 
-    // gather answer containers from our quiz
+    // a collection of all the answers
     const answerContainers = quizContainer.querySelectorAll('.answers');
 
-    // keep track of user's answers
+    // set the score to 0
     let numCorrect = 0;
-
-    // for each question...
     myQuestions.forEach( (currentQuestion, questionNumber) => {
 
-      // find selected answer
       const answerContainer = answerContainers[questionNumber];
       const selector = `input[name=question${questionNumber}]:checked`;
       const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
-      // if answer is correct
       if(userAnswer === currentQuestion.correctAnswer){
-        // add to the number of correct answers
-        numCorrect++;
-
-        // color the answers green
+        numCorrect++; /*increment score by 1*/
         answerContainers[questionNumber].style.color = 'lightgreen';
-      }
-      // if answer is wrong or blank
+      }      /*if the answer is correct, change the color to green and to red otherwise*/
       else{
-        // color the answers red
-        answerContainers[questionNumber].style.color = 'red';
+          answerContainers[questionNumber].style.color = 'red';
       }
     });
 
@@ -100,7 +89,7 @@
   const submitButton = document.getElementById('submit');
   const myQuestions = [
     {
-      question: "This answer has no ruler, I guess?", 
+      question: "This answer doesn't need a ruler, I guess?", 
 
       answers: { 
 
@@ -159,20 +148,18 @@
     } 
 
   ]; 
-
-  // Kick things off
+ 
   buildQuiz();
-
-  // Pagination
   const previousButton = document.getElementById("previous");
   const nextButton = document.getElementById("next");
   const slides = document.querySelectorAll(".slide");
   let currentSlide = 0;
 
-  // Show the first slide
+  // question and answers
   showSlide(currentSlide);
 
-  // Event listeners
+  // click to go forward or back or to submit answers
+  // and show results
   submitButton.addEventListener('click', showResults);
   previousButton.addEventListener("click", showPreviousSlide);
   nextButton.addEventListener("click", showNextSlide);
