@@ -31,7 +31,7 @@ h2{
   font-weight: 200;
   margin-top: 10px;
   text-align: center;
-  color:rgb(233, 48, 119);
+  color:rgb(15, 230, 44);
 
 }
 
@@ -43,7 +43,7 @@ h2{
   
 }
 .answers {
-  font-size: 20px;
+  font-size: 30px;
   text-align: center;
   display: inline-block;
   color: #e7e1f5;
@@ -54,12 +54,13 @@ h2{
 }
 button{
   font-family: 'Work Sans', sans-serif;
-	font-size: 22px;
+	font-size: 20px;
 	background-color: #279;
+  position: right;
 	color: #fff;
-	border: 10px;
+	border: rounded;
 	border-radius: 3px;
-	padding: 20px;
+	padding: 10px;
 	cursor: pointer;
 	margin-bottom: 20px;
 }
@@ -90,6 +91,6 @@ button:hover{
   font-size: 40px;
   text-align: center;
   margin-top: 20px;
-  color: #e01cc6;
+  color: #1809ee;
 }
     
