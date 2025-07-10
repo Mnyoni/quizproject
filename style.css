@@ -12,13 +12,13 @@ body{
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-image: url("quiz.jpg");
   background-position: center center;
   background-size: cover;
-  z-index: 0
-  filter: blur(5px);
+  z-index: 0;
+  
 }
 h1{
   font-weight: 300;
@@ -34,7 +34,9 @@ h2{
   color:rgb(233, 48, 119);
 
 }
+
 .question{
+  display: flex;
   font-size: 30px;
   margin-bottom: 10px;
   color: #f5f1f1;
@@ -55,14 +57,14 @@ button{
 	font-size: 22px;
 	background-color: #279;
 	color: #fff;
-	border: 0px;
+	border: 10px;
 	border-radius: 3px;
 	padding: 20px;
 	cursor: pointer;
 	margin-bottom: 20px;
 }
 button:hover{
-	background-color: #38a;
+	background-color: rgb(25, 37, 28);
 }
 .slide{
   position: absolute;
@@ -80,8 +82,14 @@ button:hover{
 }
 .quiz-container{
   position: relative;
+  padding-left: 50px;
   height: 200px;
   margin-top: 40px;
 }
-
+#results{
+  font-size: 40px;
+  text-align: center;
+  margin-top: 20px;
+  color: #e01cc6;
+}
     
