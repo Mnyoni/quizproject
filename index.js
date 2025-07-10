@@ -1,4 +1,4 @@
-(function(){
+
   function buildQuiz(){
     const output = [];
 
@@ -52,7 +52,10 @@
     });
 
     // show number of correct answers out of total
-    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+    resultsContainer.innerHTML =  `Your score is ${numCorrect} out of ${myQuestions.length}`;
+    submitButton.style.display = 'none';
+    previousButton.style.display = 'none';
+    restartButton.style.display = 'inline-block';
   }
 
   function showSlide(n) {
@@ -61,17 +64,21 @@
     currentSlide = n;
     if(currentSlide === 0){
       previousButton.style.display = 'none';
+      restartButton.style.display = 'none';
     }
     else{
       previousButton.style.display = 'inline-block';
+      restartButton.style.display = 'none';
     }
     if(currentSlide === slides.length-1){
       nextButton.style.display = 'none';
+      restartButton.style.display = 'none';
       submitButton.style.display = 'inline-block';
     }
     else{
       nextButton.style.display = 'inline-block';
       submitButton.style.display = 'none';
+      restartButton.style.display = 'none';
     }
   }
 
@@ -100,6 +107,61 @@
         c: "centimetre", 
 
         d: "estimation" 
+
+      }, 
+
+      correctAnswer: "d" 
+
+    }, 
+    {
+    question: "You can learn about the subject in this typical answer", 
+
+      answers: { 
+
+        a: "academy", 
+
+        b: "university", 
+
+        c: "Textbook", 
+
+        d: "Facebook" 
+
+      }, 
+
+      correctAnswer: "c" 
+
+    }, 
+    {
+      question: "I can tell you myself that I am the greatest", 
+
+      answers: { 
+
+        a: "Declaration", 
+
+        b: "Proclamation", 
+
+        c: "Identification", 
+
+        d: "Conversation" 
+
+      }, 
+
+      correctAnswer: "b" 
+
+    },
+    
+      {
+        question: "You can turn up the heat with this answer", 
+
+      answers: { 
+
+        a: "Thermometer", 
+
+        b: "Temperature", 
+
+        c: "Generator", 
+
+        d: "Thermostat" 
 
       }, 
 
@@ -152,6 +214,7 @@
   buildQuiz();
   const previousButton = document.getElementById("previous");
   const nextButton = document.getElementById("next");
+  const restartButton = document.getElementById("restart");
   const slides = document.querySelectorAll(".slide");
   let currentSlide = 0;
 
@@ -163,6 +226,11 @@
   submitButton.addEventListener('click', showResults);
   previousButton.addEventListener("click", showPreviousSlide);
   nextButton.addEventListener("click", showNextSlide);
-})();
+  restartButton.addEventListener("click", function() {
+    showSlide(0);
+    resultsContainer.innerHTML = '';
+
+  })
+;
 
 
